@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SignedVideo } from "@/components/ui/signed-video";
+import { BunnyVideo } from "@/components/ui/bunny-video";
 import { ChevronDown, ChevronUp, Trophy, TrendingUp } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -112,8 +112,8 @@ export function ExerciseCard({
         <CollapsibleContent>
           <div className="px-4 pb-4 space-y-4">
             {videoUrl && (
-              <div className="w-full rounded-xl overflow-hidden bg-foreground/5 flex items-center justify-center" style={{ maxHeight: '20rem' }}>
-                <SignedVideo bucket="exercise-videos" url={videoUrl} className="max-w-full max-h-80 object-contain" />
+              <div className="w-full sm:max-w-xs rounded-xl overflow-hidden">
+                <BunnyVideo url={videoUrl} />
               </div>
             )}
 
