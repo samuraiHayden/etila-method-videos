@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX set_logs_unique_set ON public.set_logs (workout_log_id, exercise_id, set_number);

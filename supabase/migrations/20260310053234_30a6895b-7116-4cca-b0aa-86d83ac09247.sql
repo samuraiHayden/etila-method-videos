@@ -1,0 +1,3 @@
+UPDATE program_templates SET name = 'Strength & Performance', description = 'A structured push-pull-legs training split designed for building strength, muscle, and athletic performance.' WHERE id = 'b0000001-0001-0001-0001-000000000001';
+
+UPDATE program_templates SET name = 'Sculpt & Tone', description = 'A balanced push-pull-legs training split focused on muscle definition, toning, and overall body composition.' WHERE id = 'b0000001-0001-0001-0001-000000000002';

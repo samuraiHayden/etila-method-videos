@@ -1,0 +1,1 @@
+ALTER TABLE public.meal_plan_items ADD COLUMN scheduled_time text NULL;

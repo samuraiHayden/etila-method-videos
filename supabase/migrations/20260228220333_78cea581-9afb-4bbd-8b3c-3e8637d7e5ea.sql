@@ -1,0 +1,1 @@
+ALTER TABLE public.meals ADD CONSTRAINT meals_category_check CHECK (category = ANY (ARRAY['breakfast'::text, 'lunch/dinner'::text, 'snack'::text]));

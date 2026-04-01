@@ -1,0 +1,1 @@
+ALTER TABLE public.meal_plan_items ADD COLUMN custom_ingredients jsonb DEFAULT NULL;

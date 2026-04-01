@@ -1,0 +1,7 @@
+project_id = "janlpetkbcgwndibxqha"
+
+[functions.schedule-precall-emails]
+verify_jwt = false
+
+[functions.process-scheduled-emails]
+verify_jwt = false

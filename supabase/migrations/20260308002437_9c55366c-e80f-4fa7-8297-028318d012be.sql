@@ -1,0 +1,1 @@
+ALTER TABLE public.leads ADD COLUMN phone_number text;
