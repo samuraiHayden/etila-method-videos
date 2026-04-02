@@ -71,6 +71,22 @@ const SignupPage = () => {
       console.error("Consent log failed:", err);
     }
 
+    // Verify the email has a paid purchase before allowing account creation
+    const { data: hasPurchased, error: checkError } = await supabase.rpc(
+      "check_email_purchased",
+      { p_email: email.trim().toLowerCase() }
+    );
+    if (checkError || !hasPurchased) {
+      setIsLoading(false);
+      toast({
+        title: "Purchase required",
+        description:
+          "We couldn't find a purchase for this email. Please use the email you purchased with, or visit the checkout page to get access.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     const { error } = await signUp(email, password, fullName);
     setIsLoading(false);
 
