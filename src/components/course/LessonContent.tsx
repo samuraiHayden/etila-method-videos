@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { BookOpen, Play } from "lucide-react";
-import { SignedVideo } from "@/components/ui/signed-video";
+import { BunnyVideo } from "@/components/ui/bunny-video";
 
 interface Lesson {
   id: string;
@@ -43,8 +43,8 @@ export function LessonContent({ lesson, moduleName, moduleVideoUrl, showIntro, o
           )}
           <h1 className="text-2xl font-bold text-foreground mb-6">Introduction</h1>
           <div className="rounded-lg overflow-hidden bg-black aspect-video">
-            <SignedVideo
-              bucket="exercise-videos"
+            <BunnyVideo
+              
               url={moduleVideoUrl}
               controlsList="nodownload"
             />

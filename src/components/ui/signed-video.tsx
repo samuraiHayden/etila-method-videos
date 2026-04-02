@@ -17,8 +17,8 @@ export function SignedVideo({
   className = "w-full h-full",
   controls = true,
   playsInline = true,
-  preload = "metadata",
-  controlsList,
+  preload = "auto",
+  controlsList = "nodownload",
 }: SignedVideoProps) {
   const { signedUrl, loading } = useSignedUrl(bucket, url);
 
@@ -30,13 +30,14 @@ export function SignedVideo({
 
   return (
     <video
-      key={signedUrl}
       src={signedUrl}
       controls={controls}
       playsInline={playsInline}
       preload={preload}
       className={className}
       controlsList={controlsList}
+      disablePictureInPicture
+      onContextMenu={(e) => e.preventDefault()}
     />
   );
 }
