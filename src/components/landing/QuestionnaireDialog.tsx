@@ -73,28 +73,16 @@ const questions: Question[] = [
       { value: "500_plus", label: "$500+ / month", description: "Ready for premium, fully personalized coaching" },
     ],
   },
-  {
-    key: "coaching_preference",
-    title: "What type of support are you looking for?",
-    subtitle: "Choose the style that matches your needs.",
-    options: [
-      { value: "self_paced", label: "Self-Paced Learning", description: "I want to learn and apply things on my own" },
-      { value: "some_guidance", label: "Some Guidance", description: "I'd like structure with occasional check-ins" },
-      { value: "full_coaching", label: "Full 1-on-1 Coaching", description: "I want direct, personalized coaching from Étila" },
-    ],
-  },
 ];
 
 function getQualificationResult(answers: Record<string, string>): "coaching" | "course" {
   let coachingScore = 0;
   if (answers.budget_range === "500_plus") coachingScore += 3;
   if (answers.budget_range === "300_500") coachingScore += 2;
-  if (answers.coaching_preference === "full_coaching") coachingScore += 3;
-  if (answers.coaching_preference === "some_guidance") coachingScore += 1;
   if (answers.fitness_goal === "compete") coachingScore += 2;
   if (answers.experience_level === "advanced" || answers.experience_level === "elite") coachingScore += 1;
   if (answers.training_frequency === "6_7") coachingScore += 1;
-  return coachingScore >= 5 ? "coaching" : "course";
+  return coachingScore >= 4 ? "coaching" : "course";
 }
 
 interface Props {
@@ -222,7 +210,7 @@ export function QuestionnaireDialog({ open, onOpenChange, existingLeadId }: Prop
         experience_level: answers.experience_level,
         training_frequency: answers.training_frequency,
         budget_range: answers.budget_range,
-        coaching_preference: answers.coaching_preference,
+        coaching_preference: "not_specified",
         qualification_result: qualificationResult,
       });
 
